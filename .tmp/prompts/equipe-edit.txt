@@ -1,0 +1,15 @@
+Edit this photograph to replace the background while preserving the two women in the foreground exactly as they are.
+
+Keep unchanged: the two women's faces, expressions, poses, body proportions, skin tones, jewelry, and clothing colors. They are clearly the same two people.
+
+Replace the background with: the clean, elegant interior of a French lingerie boutique. Show wooden display rails with subtle lingerie pieces hanging in soft aubergine and cream tones (out of focus, blurred), a softly lit warm interior with cream walls and a hint of golden champagne accents, perhaps a small marble surface or wooden counter visible. The lighting should be warm natural daylight matching the original photo's exposure on the women.
+
+Replace their black "Bagnols Reggae" t-shirts with elegant, plain-color tops in CREAM/IVORY for one and SOFT TERRACOTTA for the other (no logos, no graphics, no festival prints — just simple solid-color elegant tops appropriate for a lingerie boutique owner).
+
+Strict constraints:
+- KEEP the women's faces, expressions, hair, jewelry, and overall pose IDENTICAL
+- REMOVE all reggae imagery (Bob Marley flag, rasta colors, festival hats, "BAGNOLS REGGAE" text)
+- REMOVE the festival shop window in the background
+- NO mauve pastel, NO lavender — use cream, terracotta, soft aubergine, gold tones only
+- NO text, NO logos in the new background
+- Final photo should look like a candid portrait of the boutique owner and her team inside Subtil Lingerie
