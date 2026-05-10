@@ -11,29 +11,34 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
 >
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-grid container">
-      <div class="hero-text">
-        <span class="eyebrow">Boutique à Bagnols-sur-Cèze depuis des années</span>
-        <h1>L'art de se sentir bien, <em>au plus près de soi</em>.</h1>
-        <p class="lead">
-          Une sélection rigoureuse des grandes maisons françaises et internationales,
-          un conseil sincère, et l'essayage qui change tout.
-        </p>
-        <div class="hero-cta">
-          <a href="/marques" class="btn btn-primary">Découvrir nos marques</a>
-          <a href="/contact" class="btn btn-ghost">Nous rendre visite</a>
-        </div>
+    <div class="hero-bg">
+      <img
+        src="/images/vitrine.jpg"
+        alt="Façade de la boutique Subtil Lingerie au cœur de Bagnols-sur-Cèze"
+        width="1920"
+        height="1280"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero-content container">
+      <span class="eyebrow">Bagnols-sur-Cèze · centre-ville historique</span>
+      <h1>
+        L'art de se sentir bien,
+        <em>au plus près de soi</em>
+      </h1>
+      <p class="lead">
+        Une sélection rigoureuse des grandes maisons françaises et internationales —
+        Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph, Sloggi, Freya.
+        <br/>Le conseil et l'essayage qui changent tout.
+      </p>
+      <div class="hero-cta">
+        <a href="/marques" class="btn btn-primary">Découvrir nos marques</a>
+        <a href="/contact" class="btn btn-ghost-light">Nous rendre visite</a>
       </div>
-
-      <div class="hero-visual">
-        <img
-          src="/images/hero-ambiance.jpg"
-          alt="Intérieur d'une boutique de lingerie élégante avec portants en bois clair, rideau de cabine d'essayage en velours mauve et bouquet de pivoines"
-          width="1456"
-          height="816"
-          fetchpriority="high"
-        />
-      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>Découvrir</span>
+      <span class="scroll-line"></span>
     </div>
   </section>
 
@@ -198,69 +203,130 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
   <Newsletter variant="section" />
 
   <!-- CONTACT QUICK -->
-  <section class="contact-cta bg-aubergine">
+  <section class="bg-aubergine cta">
     <div class="container-narrow text-center">
       <span class="eyebrow">Venez nous voir</span>
-      <h2 style="color: var(--c-cream);">Rien ne remplace l'essayage</h2>
-      <p class="lead" style="color: var(--c-mauve-light); margin-top: 1.25rem;">
+      <h2>Rien ne remplace l'essayage</h2>
+      <p class="lead">
         {boutique.adresse.rue} · {boutique.adresse.cp} {boutique.adresse.ville}<br/>
-        <a href={`tel:${boutique.telephoneTel}`} style="color: var(--c-gold-light); border-bottom: 1px solid var(--c-gold-light);">
-          {boutique.telephoneAffiche}
-        </a>
+        <a class="phone-cta" href={`tel:${boutique.telephoneTel}`}>{boutique.telephoneAffiche}</a>
       </p>
-      <div style="margin-top: 2rem;">
-        <a href="/contact" class="btn btn-ghost" style="color: var(--c-cream); border-color: var(--c-cream);">
-          Horaires & accès
-        </a>
-      </div>
+      <a href="/contact" class="btn btn-ghost-light cta-btn">Horaires & accès</a>
     </div>
   </section>
 </Base>
 
 <style>
   .hero {
-    padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
-    background: linear-gradient(170deg, var(--c-cream) 0%, var(--c-mauve-light) 100%);
-    overflow: hidden;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .hero-text h1 em {
-    font-style: italic;
-    color: var(--c-gold);
-    font-family: var(--font-script);
-    font-size: 1.05em;
-  }
-  .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
-
-  .hero-visual {
     position: relative;
+    min-height: clamp(560px, 88vh, 820px);
+    display: flex;
+    align-items: flex-end;
     overflow: hidden;
-    border-radius: 3px;
-    box-shadow: 0 30px 60px -25px rgba(74, 42, 65, 0.45);
-    aspect-ratio: 16/9;
+    isolation: isolate;
+    color: var(--c-cream);
   }
-  .hero-visual img {
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  .hero-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 40%;
     display: block;
-    transform: scale(1.02);
-    transition: transform 1.2s var(--ease);
   }
-  .hero-visual::after {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-bg img { animation: heroPan 30s ease-out both; }
+    .hero-scroll .scroll-line { animation: scrollHint 2s ease-in-out infinite; }
+  }
+  @keyframes heroPan {
+    from { transform: scale(1.08); }
+    to   { transform: scale(1.0); }
+  }
+  .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent 50%, rgba(107, 62, 94, 0.18) 100%);
-    pointer-events: none;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(42, 31, 38, 0.15) 0%, rgba(42, 31, 38, 0.55) 60%, rgba(42, 31, 38, 0.85) 100%),
+      linear-gradient(90deg, rgba(42, 31, 38, 0.45) 0%, transparent 50%);
+  }
+  .hero-content {
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 9vw, 7rem);
+    max-width: 720px;
+  }
+  .hero-content .eyebrow {
+    color: var(--c-gold-light);
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+  }
+  .hero-content h1 {
+    color: var(--c-cream);
+    line-height: 1.1;
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+    font-weight: 400;
+  }
+  .hero-content h1 em {
+    display: block;
+    font-style: italic;
+    color: var(--c-gold-light);
+    font-family: var(--font-script);
+    font-size: 1.5em;
+    line-height: 0.95;
+    margin-top: 0.4rem;
+    font-weight: 400;
+  }
+  .hero-content .lead {
+    color: var(--c-cream);
+    margin-top: 1.75rem;
+    max-width: 560px;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
+    line-height: 1.55;
+    opacity: 0.95;
+  }
+  .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    right: clamp(1.25rem, 4vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--c-gold-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .hero-scroll .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--c-gold-light), transparent);
+  }
+  @keyframes scrollHint {
+    0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.6; }
+    50% { transform: scaleY(1.4); opacity: 1; }
   }
 
-  .values { background: var(--c-ivory); }
+  @media (max-width: 720px) {
+    .hero-scroll { display: none; }
+    .hero-content h1 em { font-size: 1.3em; }
+  }
+
+  /* Lien téléphone dans la CTA aubergine */
+  .phone-cta {
+    color: var(--c-gold-light);
+    border-bottom: 1px solid var(--c-gold-light);
+    padding-bottom: 1px;
+  }
+  .phone-cta:hover { color: var(--c-cream); border-color: var(--c-cream); }
+
   .value-card {
     text-align: center;
     padding: 2rem 1.5rem;
@@ -389,41 +455,57 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
 
   .brand-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0;
+    border-top: 1px solid var(--c-line);
+    border-left: 1px solid var(--c-line);
   }
   .brand-card {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 2rem 1.5rem;
-    background: var(--c-cream);
-    border: 1px solid var(--c-line);
-    border-left: 3px solid var(--accent);
+    gap: 0.6rem;
+    padding: 2.25rem 1.75rem;
+    background: transparent;
+    border-right: 1px solid var(--c-line);
+    border-bottom: 1px solid var(--c-line);
     text-align: left;
-    transition: all 0.25s var(--ease);
+    transition: background 0.3s var(--ease);
     text-decoration: none;
+    position: relative;
+  }
+  .brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
   }
   .brand-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 16px 30px -16px rgba(107, 62, 94, 0.25);
+    background: var(--c-cream);
   }
+  .brand-card:hover::before { transform: scaleX(1); }
   .brand-name {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.65rem;
     color: var(--c-aubergine-dark);
+    letter-spacing: -0.005em;
+    transition: color 0.25s var(--ease);
   }
+  .brand-card:hover .brand-name { color: var(--accent); }
   .brand-pitch {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: var(--c-muted);
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .text-center { text-align: center; }
-  .contact-cta { padding-block: clamp(4rem, 8vw, 6rem); }
 
   @media (max-width: 860px) {
-    .hero-grid, .preview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-visual { order: -1; aspect-ratio: 16/10; }
+    .preview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   }
 </style>

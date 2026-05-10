@@ -14,7 +14,7 @@ import { marques } from '../data/boutique';
     <div class="container-narrow text-center page-hero-content">
       <span class="eyebrow">Nos partenaires</span>
       <h1>Les maisons que <em>nous aimons</em></h1>
-      <p class="lead" style="margin-top: 1.5rem;">
+      <p class="lead">
         Une sélection française et internationale, choisie pour la qualité, l'ajustement
         et la diversité des morphologies couvertes.
       </p>
@@ -25,13 +25,15 @@ import { marques } from '../data/boutique';
     <div class="container">
       <figure class="display-figure">
         <img
-          src="/images/aubade-display.jpg"
-          alt="Mannequin Aubade en boutique avec affiches de la campagne et boxers Triumph"
+          src="/images/marques-editorial.jpg"
+          alt="Composition éditoriale : boîtes de lingerie, vase de roses, écrin de soie ivoire"
           loading="lazy"
+          width="1456"
+          height="816"
         />
         <figcaption>
-          <span class="eyebrow">En boutique</span>
-          <p>Aubade, Triumph, Wacoal — les grandes maisons exposées comme elles le méritent.</p>
+          <span class="eyebrow">Une sélection assumée</span>
+          <p>Chaque maison choisie pour ce qu'elle apporte : la dentelle française, le savoir-faire japonais, le confort universel.</p>
         </figcaption>
       </figure>
     </div>
@@ -54,19 +56,15 @@ import { marques } from '../data/boutique';
     </div>
   </section>
 
-  <section class="bg-aubergine">
+  <section class="bg-aubergine cta">
     <div class="container-narrow text-center">
       <span class="eyebrow">Vous cherchez une référence précise ?</span>
-      <h2 style="color: var(--c-cream);">Appelez-nous, on vérifie le stock</h2>
-      <p class="lead" style="color: var(--c-mauve-light); margin-top: 1.25rem;">
+      <h2>Appelez-nous, on vérifie le stock</h2>
+      <p class="lead">
         Plutôt que de commander en aveugle, dites-nous ce que vous cherchez —
         modèle, taille, couleur — et on vous dit immédiatement si c'est en boutique.
       </p>
-      <div style="margin-top: 2rem;">
-        <a href="/contact" class="btn btn-ghost" style="color: var(--c-cream); border-color: var(--c-cream);">
-          Nous contacter
-        </a>
-      </div>
+      <a href="/contact" class="btn btn-ghost-light cta-btn">Nous contacter</a>
     </div>
   </section>
 
@@ -74,69 +72,32 @@ import { marques } from '../data/boutique';
 </Base>
 
 <style>
-  .page-hero {
-    position: relative;
-    padding-block: clamp(5rem, 12vw, 8rem);
-    overflow: hidden;
-    isolation: isolate;
-  }
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-  }
-  .page-hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5) saturate(0.85);
-  }
-  .page-hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(74, 42, 65, 0.55) 0%, rgba(74, 42, 65, 0.85) 100%);
-  }
-  .page-hero-content { color: var(--c-cream); position: relative; }
-  .page-hero-content h1, .page-hero-content .lead { color: var(--c-cream); }
-  .page-hero-content .eyebrow { color: var(--c-gold-light); }
-
-  .page-hero h1 em {
-    font-family: var(--font-script);
-    color: var(--c-gold-light);
-    font-style: italic;
-  }
   .display-feature {
-    padding-block: clamp(2.5rem, 5vw, 4rem) 1rem;
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
   }
   .display-figure {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 2.5rem;
-    align-items: center;
     max-width: 1100px;
     margin-inline: auto;
+    text-align: center;
   }
   .display-figure img {
     width: 100%;
     height: auto;
     border-radius: 3px;
-    box-shadow: 0 24px 50px -25px rgba(74, 42, 65, 0.4);
+    box-shadow: 0 30px 60px -28px rgba(74, 42, 65, 0.4);
+    margin-bottom: 1.75rem;
   }
   .display-figure figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    max-width: 600px;
+    margin-inline: auto;
   }
   .display-figure figcaption p {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-style: italic;
     color: var(--c-aubergine);
-    line-height: 1.4;
-  }
-  @media (max-width: 760px) {
-    .display-figure { grid-template-columns: 1fr; gap: 1.25rem; }
+    line-height: 1.45;
+    margin-top: 0.5rem;
   }
 
   .brand-list {
