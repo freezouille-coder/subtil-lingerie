@@ -1,0 +1,251 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { boutique, marques } from '../data/boutique';
+const phares = ['aubade', 'simone-perele', 'chantelle', 'wacoal', 'triumph', 'sloggi'];
+const marquesPhares = marques.filter(m => phares.includes(m.slug));
+---
+<Base
+  title="Subtil Lingerie — Bagnols-sur-Cèze"
+  description="Boutique de lingerie au cœur de Bagnols-sur-Cèze. Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph, Sloggi, Freya. Conseil personnalisé, essayage, marques de référence."
+>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid container">
+      <div class="hero-text">
+        <span class="eyebrow">Boutique à Bagnols-sur-Cèze depuis des années</span>
+        <h1>L'art de se sentir bien, <em>au plus près de soi</em>.</h1>
+        <p class="lead">
+          Une sélection rigoureuse des grandes maisons françaises et internationales,
+          un conseil sincère, et l'essayage qui change tout.
+        </p>
+        <div class="hero-cta">
+          <a href="/marques" class="btn btn-primary">Découvrir nos marques</a>
+          <a href="/contact" class="btn btn-ghost">Nous rendre visite</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <!-- Placeholder logo / hero image -->
+        <div class="hero-mark">
+          <svg viewBox="0 0 200 280" aria-hidden="true">
+            <!-- Cercle floral stylisé inspiré du logo -->
+            <circle cx="100" cy="140" r="85" fill="none" stroke="#B898AC" stroke-width="1.2" opacity="0.6"/>
+            <ellipse cx="55" cy="80" rx="22" ry="32" fill="#6B3E5E" opacity="0.7" transform="rotate(-25 55 80)"/>
+            <ellipse cx="48" cy="115" rx="14" ry="22" fill="#B898AC" opacity="0.6" transform="rotate(-15 48 115)"/>
+            <ellipse cx="38" cy="60" rx="10" ry="14" fill="#C9A961" opacity="0.7"/>
+            <line x1="55" y1="110" x2="55" y2="200" stroke="#6B3E5E" stroke-width="1" opacity="0.5"/>
+            <ellipse cx="65" cy="160" rx="8" ry="18" fill="#6B3E5E" opacity="0.5" transform="rotate(40 65 160)"/>
+            <text x="100" y="245" text-anchor="middle" font-family="Dancing Script, cursive" font-size="38" fill="#C9A961">Subtil</text>
+            <text x="100" y="268" text-anchor="middle" font-family="Inter" font-size="11" letter-spacing="6" fill="#6B3E5E">LINGERIE</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="values bg-ivory">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="value-card">
+          <div class="value-icon">✦</div>
+          <h3>Conseil personnalisé</h3>
+          <p>L'œil expert d'une équipe passionnée. La bonne taille, la bonne matière, la pièce qui vous va vraiment.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✦</div>
+          <h3>Marques d'exception</h3>
+          <p>Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph… Les références françaises et internationales.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✦</div>
+          <h3>Discrétion & élégance</h3>
+          <p>Une boutique de centre-ville où l'on se sent immédiatement à l'aise, pour soi ou pour offrir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTIQUE PREVIEW -->
+  <section class="boutique-preview">
+    <div class="container preview-grid">
+      <div class="preview-text">
+        <span class="eyebrow">Notre maison</span>
+        <h2>Une boutique de cœur, en plein centre-ville</h2>
+        <p>
+          Subtil Lingerie, c'est un savoir-faire familial au service de toutes les femmes :
+          des essentiels du quotidien aux pièces d'exception, des bonnets profonds aux silhouettes
+          plus fines, des nuits douces aux maillots d'été. Chaque cliente repart avec ce qu'elle est
+          venue chercher — souvent un peu plus.
+        </p>
+        <p>
+          Vous pouvez nous trouver au <strong>{boutique.adresse.rue}</strong>, à
+          <strong> {boutique.adresse.ville}</strong>.
+        </p>
+        <a href="/boutique" class="btn btn-ghost">En savoir plus</a>
+      </div>
+      <div class="preview-image">
+        <div class="image-placeholder">
+          <span>Photo boutique<br/>(à intégrer)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUES PHARES -->
+  <section class="brands bg-ivory">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Nos marques</span>
+        <h2>Une sélection rigoureuse</h2>
+        <div class="divider">✦</div>
+      </div>
+      <div class="brand-grid">
+        {marquesPhares.map(m => (
+          <a href={`/marques#${m.slug}`} class="brand-card" style={`--accent: ${m.accent}`}>
+            <span class="brand-name">{m.nom}</span>
+            <span class="brand-pitch">{m.pitch}</span>
+          </a>
+        ))}
+      </div>
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="/marques" class="link-quiet">Voir toutes nos marques →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <Newsletter variant="section" />
+
+  <!-- CONTACT QUICK -->
+  <section class="contact-cta bg-aubergine">
+    <div class="container-narrow text-center">
+      <span class="eyebrow">Venez nous voir</span>
+      <h2 style="color: var(--c-cream);">Rien ne remplace l'essayage</h2>
+      <p class="lead" style="color: var(--c-mauve-light); margin-top: 1.25rem;">
+        {boutique.adresse.rue} · {boutique.adresse.cp} {boutique.adresse.ville}<br/>
+        <a href={`tel:${boutique.telephoneTel}`} style="color: var(--c-gold-light); border-bottom: 1px solid var(--c-gold-light);">
+          {boutique.telephoneAffiche}
+        </a>
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="/contact" class="btn btn-ghost" style="color: var(--c-cream); border-color: var(--c-cream);">
+          Horaires & accès
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
+    background: linear-gradient(170deg, var(--c-cream) 0%, var(--c-mauve-light) 100%);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--c-gold);
+    font-family: var(--font-script);
+    font-size: 1.05em;
+  }
+  .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+
+  .hero-visual { display: flex; justify-content: center; }
+  .hero-mark {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 5/7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-mark svg { width: 100%; height: auto; }
+
+  .values { background: var(--c-ivory); }
+  .value-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .value-icon {
+    font-size: 1.5rem;
+    color: var(--c-gold);
+    margin-bottom: 1rem;
+  }
+  .value-card h3 { margin-bottom: 0.75rem; color: var(--c-aubergine); }
+  .value-card p { color: var(--c-muted); }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .preview-text h2 { margin-bottom: 1.5rem; }
+  .preview-text p { margin-bottom: 1rem; color: var(--c-ink); }
+  .preview-text .btn { margin-top: 1rem; }
+
+  .image-placeholder {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--c-mauve-light), var(--c-mauve));
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-aubergine);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-align: center;
+    box-shadow: 0 20px 40px -20px rgba(107, 62, 94, 0.3);
+  }
+
+  .section-head { text-align: center; margin-bottom: 3rem; }
+
+  .brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .brand-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem 1.5rem;
+    background: var(--c-cream);
+    border: 1px solid var(--c-line);
+    border-left: 3px solid var(--accent);
+    text-align: left;
+    transition: all 0.25s var(--ease);
+    text-decoration: none;
+  }
+  .brand-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 30px -16px rgba(107, 62, 94, 0.25);
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--c-aubergine-dark);
+  }
+  .brand-pitch {
+    font-size: 0.92rem;
+    color: var(--c-muted);
+    line-height: 1.5;
+  }
+
+  .text-center { text-align: center; }
+  .contact-cta { padding-block: clamp(4rem, 8vw, 6rem); }
+
+  @media (max-width: 860px) {
+    .hero-grid, .preview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-visual { order: -1; }
+    .hero-mark { max-width: 240px; }
+  }
+</style>

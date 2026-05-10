@@ -1,0 +1,162 @@
+---
+const nav = [
+  { href: '/',          label: 'Accueil' },
+  { href: '/boutique',  label: 'La boutique' },
+  { href: '/marques',   label: 'Nos marques' },
+  { href: '/contact',   label: 'Contact' },
+];
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Subtil Lingerie - Accueil">
+      <span class="brand-script">Subtil</span>
+      <span class="brand-sub">Lingerie</span>
+    </a>
+
+    <nav class="primary-nav" aria-label="Navigation principale">
+      <ul>
+        {nav.map(item => {
+          const itemPath = item.href.replace(/\/$/, '') || '/';
+          const isActive = current === itemPath;
+          return (
+            <li>
+              <a href={item.href} class:list={['nav-link', { active: isActive }]}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 246, 241, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--c-line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+    gap: 2rem;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+    text-decoration: none;
+  }
+  .brand-script {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    color: var(--c-aubergine);
+    font-weight: 500;
+  }
+  .brand-sub {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    color: var(--c-gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+    padding-left: 4px;
+  }
+  .primary-nav ul {
+    display: flex;
+    gap: 2.25rem;
+    list-style: none;
+  }
+  .nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-ink);
+    padding: 0.4rem 0;
+    transition: color 0.2s var(--ease);
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--c-aubergine);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s var(--ease);
+  }
+  .nav-link:hover, .nav-link.active { color: var(--c-aubergine); }
+  .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+  .menu-toggle {
+    display: none;
+    width: 36px;
+    height: 36px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--c-aubergine);
+    transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+  }
+
+  @media (max-width: 760px) {
+    .primary-nav {
+      position: fixed;
+      inset: 64px 0 auto 0;
+      background: var(--c-cream);
+      border-bottom: 1px solid var(--c-line);
+      padding: 1.5rem 1rem 2rem;
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+    }
+    .primary-nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .primary-nav ul {
+      flex-direction: column;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .menu-toggle { display: flex; }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement | null;
+  const nav = document.querySelector('.primary-nav') as HTMLElement | null;
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+</script>

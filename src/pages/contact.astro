@@ -1,0 +1,142 @@
+---
+import Base from '../layouts/Base.astro';
+import { boutique } from '../data/boutique';
+const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${boutique.adresse.rue}, ${boutique.adresse.cp} ${boutique.adresse.ville}`)}&output=embed`;
+---
+<Base
+  title="Contact & accès — Subtil Lingerie"
+  description="Adresse, horaires, téléphone, plan d'accès. Subtil Lingerie - 2 Rue Fernand Crémieux, 30200 Bagnols-sur-Cèze."
+>
+  <section class="page-hero bg-mauve">
+    <div class="container-narrow text-center">
+      <span class="eyebrow">Nous trouver</span>
+      <h1>Bienvenue à <em>Bagnols-sur-Cèze</em></h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-block">
+            <h4>Adresse</h4>
+            <address>
+              <strong>Subtil Lingerie</strong><br/>
+              {boutique.adresse.rue}<br/>
+              {boutique.adresse.cp} {boutique.adresse.ville}<br/>
+              France
+            </address>
+            <a class="link-quiet" href={boutique.geo.googleMapsUrl} target="_blank" rel="noopener">
+              Itinéraire Google Maps →
+            </a>
+          </div>
+
+          <div class="info-block">
+            <h4>Téléphone</h4>
+            <p class="phone">
+              <a href={`tel:${boutique.telephoneTel}`}>{boutique.telephoneAffiche}</a>
+            </p>
+            <p style="font-size: 0.9rem; color: var(--c-muted);">
+              N'hésitez pas à appeler avant votre venue, surtout pour vérifier la disponibilité
+              d'un modèle ou d'une taille.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4>Horaires d'ouverture</h4>
+            <ul class="horaires">
+              {boutique.horaires.map(h => (
+                <li>
+                  <span>{h.jour}</span>
+                  <strong>{h.heures}</strong>
+                </li>
+              ))}
+            </ul>
+            <p style="font-size: 0.85rem; color: var(--c-muted); margin-top: 1rem; font-style: italic;">
+              ⚠️ Horaires indicatifs — à confirmer / mettre à jour.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <h4>Suivez-nous</h4>
+            <ul class="socials">
+              <li><a href={boutique.social.instagram} target="_blank" rel="noopener">Instagram @subtil_lingerie</a></li>
+              <li><a href={boutique.social.facebook}  target="_blank" rel="noopener">Facebook · Subtil Lg</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="contact-map">
+          <div class="map-frame">
+            <iframe
+              title="Plan d'accès Subtil Lingerie"
+              src={mapsEmbed}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-hero h1 em {
+    font-family: var(--font-script);
+    color: var(--c-gold);
+    font-style: italic;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .info-block { margin-bottom: 2.5rem; }
+  .info-block:last-child { margin-bottom: 0; }
+  .info-block h4 { margin-bottom: 0.75rem; }
+  address { font-style: normal; line-height: 1.7; margin-bottom: 0.5rem; }
+  .phone {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--c-aubergine);
+    margin-bottom: 0.5rem;
+  }
+  .phone a { color: var(--c-aubergine); }
+  .phone a:hover { color: var(--c-gold); }
+
+  .horaires { list-style: none; }
+  .horaires li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--c-line);
+    font-size: 0.95rem;
+  }
+  .horaires li:last-child { border-bottom: 0; }
+  .horaires span { color: var(--c-muted); }
+  .horaires strong { color: var(--c-aubergine); font-weight: 500; }
+
+  .socials { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .map-frame {
+    position: sticky;
+    top: 100px;
+    aspect-ratio: 4/5;
+    background: var(--c-mauve-light);
+    border: 1px solid var(--c-line);
+    overflow: hidden;
+  }
+  .map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .map-frame { aspect-ratio: 3/2; position: static; }
+  }
+</style>

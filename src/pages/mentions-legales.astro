@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import { boutique } from '../data/boutique';
+---
+<Base
+  title="Mentions légales — Subtil Lingerie"
+  description="Mentions légales et informations sur l'éditeur du site Subtil Lingerie."
+>
+  <section>
+    <div class="container-narrow">
+      <span class="eyebrow">Informations légales</span>
+      <h1>Mentions légales</h1>
+
+      <h2>Éditeur du site</h2>
+      <p>
+        <strong>Subtil Lingerie</strong><br/>
+        {boutique.adresse.rue}<br/>
+        {boutique.adresse.cp} {boutique.adresse.ville}<br/>
+        Téléphone : {boutique.telephoneAffiche}
+      </p>
+      <p style="font-style: italic; color: var(--c-muted);">
+        ⚠️ À compléter : forme juridique (EURL/SARL/EI), numéro SIRET, RCS, capital social, n° TVA intracommunautaire,
+        nom du directeur de publication.
+      </p>
+
+      <h2>Hébergement</h2>
+      <p>
+        Site hébergé par <strong>Netlify, Inc.</strong><br/>
+        512 2nd Street, Suite 200, San Francisco, CA 94107, USA
+      </p>
+      <p style="font-style: italic; color: var(--c-muted);">
+        À adapter selon l'hébergeur final retenu (Netlify, Vercel, OVH…).
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble du contenu de ce site (textes, images, logo, graphismes) est la propriété exclusive
+        de Subtil Lingerie ou de ses partenaires (marques distribuées). Toute reproduction, même partielle,
+        sans autorisation préalable est interdite.
+      </p>
+
+      <h2>Données personnelles & RGPD</h2>
+      <p>
+        Les données collectées via le formulaire d'inscription à la newsletter (adresse email)
+        sont utilisées uniquement pour vous envoyer nos communications commerciales. Elles sont stockées
+        chez notre prestataire <strong>Brevo</strong> (hébergement en France) et ne sont jamais cédées
+        à des tiers.
+      </p>
+      <p>
+        Conformément au RGPD, vous disposez à tout moment d'un droit d'accès, de rectification,
+        de suppression et d'opposition concernant vos données. Pour l'exercer, écrivez-nous ou
+        utilisez le lien de désinscription présent dans chacun de nos emails.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Ce site n'utilise pas de cookies de suivi publicitaire. Seuls des cookies techniques nécessaires
+        au bon fonctionnement du site peuvent être déposés.
+      </p>
+
+      <h2>Crédits</h2>
+      <p>
+        Conception et développement : projet personnel.<br/>
+        Typographies : Cormorant Garamond, Inter, Dancing Script (Google Fonts).
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  h1 { margin-bottom: 2rem; }
+  h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--c-aubergine);
+    font-size: 1.4rem;
+  }
+  p { margin-bottom: 1rem; }
+</style>

@@ -1,0 +1,127 @@
+---
+import { boutique } from '../data/boutique';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="col">
+      <div class="footer-brand">
+        <span class="footer-script">Subtil</span>
+        <span class="footer-sub">Lingerie</span>
+      </div>
+      <p class="footer-tag">L'élégance au cœur de Bagnols-sur-Cèze.</p>
+    </div>
+
+    <div class="col">
+      <h4>Visiter</h4>
+      <address>
+        {boutique.adresse.rue}<br/>
+        {boutique.adresse.cp} {boutique.adresse.ville}
+      </address>
+      <p>
+        <a href={`tel:${boutique.telephoneTel}`}>{boutique.telephoneAffiche}</a>
+      </p>
+      <p>
+        <a class="link-quiet" href={boutique.geo.googleMapsUrl} target="_blank" rel="noopener">
+          Voir sur Google Maps →
+        </a>
+      </p>
+    </div>
+
+    <div class="col">
+      <h4>Suivre</h4>
+      <ul class="social">
+        <li><a href={boutique.social.instagram} target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href={boutique.social.facebook}  target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <h4>Plan</h4>
+      <ul class="links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/boutique">La boutique</a></li>
+        <li><a href="/marques">Nos marques</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {year} Subtil Lingerie · Tous droits réservés</p>
+    <p class="legal">Site réalisé avec amour pour Catherine.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--c-aubergine-dark);
+    color: var(--c-mauve-light);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .col h4 {
+    color: var(--c-gold-light);
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .footer-brand { display: flex; flex-direction: column; line-height: 0.9; margin-bottom: 0.75rem; }
+  .footer-script {
+    font-family: var(--font-script);
+    font-size: 2.4rem;
+    color: var(--c-gold-light);
+    font-weight: 500;
+  }
+  .footer-sub {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.45em;
+    color: var(--c-mauve);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .footer-tag {
+    color: var(--c-mauve);
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    max-width: 300px;
+  }
+  address {
+    font-style: normal;
+    color: var(--c-mauve-light);
+    margin-bottom: 0.6rem;
+    line-height: 1.7;
+  }
+  .col a {
+    color: var(--c-mauve-light);
+  }
+  .col a:hover { color: var(--c-gold-light); }
+  .social, .links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(232, 217, 226, 0.15);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--c-mauve);
+  }
+  .footer-bottom .legal { font-style: italic; }
+
+  @media (max-width: 760px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+  @media (max-width: 460px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>

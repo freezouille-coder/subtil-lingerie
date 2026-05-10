@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { boutique } from '../data/boutique';
+---
+<Base
+  title="La boutique — Subtil Lingerie · Bagnols-sur-Cèze"
+  description="Subtil Lingerie, boutique de lingerie féminine au cœur de Bagnols-sur-Cèze. Une équipe à votre écoute, des marques de confiance, l'essayage et le conseil personnalisé."
+>
+  <section class="page-hero bg-mauve">
+    <div class="container-narrow text-center">
+      <span class="eyebrow">Notre boutique</span>
+      <h1>Une histoire de famille, <em>une passion partagée</em></h1>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-narrow">
+      <p class="lead">
+        Subtil Lingerie est née d'une conviction simple : <strong>chaque femme mérite la pièce qui lui va vraiment</strong>.
+        Pas celle qui correspond à une taille standard, pas celle qui ressemble à la photo du catalogue —
+        celle qui épouse sa morphologie, son style, son histoire.
+      </p>
+
+      <div class="divider">✦</div>
+
+      <h2>Le conseil avant le produit</h2>
+      <p>
+        Dans notre boutique de centre-ville, vous êtes accueillie par une équipe formée aux particularités
+        de chaque marque, de chaque coupe, de chaque matière. On prend le temps de comprendre ce que vous cherchez :
+        un soutien-gorge confortable pour le quotidien, une pièce d'exception pour une occasion,
+        une chemise de nuit qui dure, un maillot pour les vacances.
+      </p>
+
+      <p>
+        L'essayage en cabine est <strong>essentiel</strong>. Une taille bonnet n'a pas la même réalité chez Aubade,
+        Wacoal ou Triumph. Notre rôle : vous éviter les mauvaises surprises et les pièces oubliées au fond du tiroir.
+      </p>
+
+      <h2>Des marques choisies, pas alignées</h2>
+      <p>
+        Nous distribuons une dizaine de maisons sélectionnées pour leur qualité de fabrication, leur ajustement,
+        et leur capacité à habiller toutes les femmes — du 85A au 105G, du 36 au 50.
+        <a href="/marques" class="link-quiet">Découvrez la liste complète</a>.
+      </p>
+
+      <h2>Au-delà de la lingerie</h2>
+      <p>
+        Lingerie de jour et de nuit, maillots de bain, et pièces de prêt-à-porter en maille (Sara) :
+        nous accompagnons votre garde-robe dans toutes ses dimensions intimes.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-ivory">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card">
+          <h4>Adresse</h4>
+          <p>{boutique.adresse.rue}<br/>{boutique.adresse.cp} {boutique.adresse.ville}</p>
+          <a class="link-quiet" href={boutique.geo.googleMapsUrl} target="_blank" rel="noopener">Itinéraire →</a>
+        </div>
+        <div class="info-card">
+          <h4>Téléphone</h4>
+          <p><a href={`tel:${boutique.telephoneTel}`}>{boutique.telephoneAffiche}</a></p>
+          <p style="font-size: 0.85rem; color: var(--c-muted);">N'hésitez pas à appeler avant votre visite, surtout pour les pièces spécifiques.</p>
+        </div>
+        <div class="info-card">
+          <h4>Horaires</h4>
+          <ul class="horaires">
+            {boutique.horaires.map(h => (
+              <li>
+                <span>{h.jour}</span>
+                <strong>{h.heures}</strong>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter variant="section" />
+</Base>
+
+<style>
+  .page-hero {
+    padding-block: clamp(4rem, 8vw, 6rem);
+  }
+  .page-hero h1 em {
+    font-family: var(--font-script);
+    color: var(--c-gold);
+    font-style: italic;
+    display: block;
+    font-size: 0.9em;
+    margin-top: 0.3rem;
+  }
+  .container-narrow .lead { margin-bottom: 1rem; }
+  .container-narrow h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
+  .container-narrow p { margin-bottom: 1rem; }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  .info-card {
+    background: var(--c-cream);
+    padding: 2rem;
+    border: 1px solid var(--c-line);
+    border-radius: 2px;
+  }
+  .info-card h4 { margin-bottom: 1rem; }
+  .info-card p  { margin-bottom: 0.5rem; }
+
+  .horaires { list-style: none; }
+  .horaires li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--c-line);
+    font-size: 0.95rem;
+  }
+  .horaires li:last-child { border-bottom: 0; }
+  .horaires span { color: var(--c-muted); }
+  .horaires strong { color: var(--c-aubergine); font-weight: 500; }
+</style>

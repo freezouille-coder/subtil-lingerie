@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { marques } from '../data/boutique';
+---
+<Base
+  title="Nos marques — Subtil Lingerie · Bagnols-sur-Cèze"
+  description="Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph, Sloggi, Freya, Tress, Sara, Maillots de bain. Découvrez nos maisons partenaires."
+>
+  <section class="page-hero bg-mauve">
+    <div class="container-narrow text-center">
+      <span class="eyebrow">Nos partenaires</span>
+      <h1>Les maisons que <em>nous aimons</em></h1>
+      <p class="lead" style="margin-top: 1.5rem;">
+        Une sélection française et internationale, choisie pour la qualité, l'ajustement
+        et la diversité des morphologies couvertes.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="brand-list">
+        {marques.map((m, i) => (
+          <article id={m.slug} class="brand-row" style={`--accent: ${m.accent}`}>
+            <div class="brand-num">{String(i + 1).padStart(2, '0')}</div>
+            <div class="brand-body">
+              <h2>{m.nom}</h2>
+              <p class="brand-pitch-line">{m.pitch}</p>
+              <p>{m.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-aubergine">
+    <div class="container-narrow text-center">
+      <span class="eyebrow">Vous cherchez une référence précise ?</span>
+      <h2 style="color: var(--c-cream);">Appelez-nous, on vérifie le stock</h2>
+      <p class="lead" style="color: var(--c-mauve-light); margin-top: 1.25rem;">
+        Plutôt que de commander en aveugle, dites-nous ce que vous cherchez —
+        modèle, taille, couleur — et on vous dit immédiatement si c'est en boutique.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="/contact" class="btn btn-ghost" style="color: var(--c-cream); border-color: var(--c-cream);">
+          Nous contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Newsletter variant="section" />
+</Base>
+
+<style>
+  .page-hero h1 em {
+    font-family: var(--font-script);
+    color: var(--c-gold);
+    font-style: italic;
+  }
+  .brand-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 880px;
+    margin-inline: auto;
+  }
+  .brand-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--c-line);
+    align-items: start;
+  }
+  .brand-row:last-child { border-bottom: 1px solid var(--c-line); }
+  .brand-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .brand-body h2 {
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+  .brand-pitch-line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--c-aubergine);
+    margin-bottom: 1rem;
+  }
+  .brand-body p { margin-bottom: 0.75rem; }
+
+  @media (max-width: 600px) {
+    .brand-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 2rem 0; }
+    .brand-num { font-size: 1.5rem; }
+  }
+</style>

@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  pathname?: string;
+}
+
+const {
+  title = 'Subtil Lingerie — Bagnols-sur-Cèze',
+  description = "Boutique de lingerie à Bagnols-sur-Cèze. Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph, Sloggi, Freya. Conseil personnalisé et essayage en cabine.",
+  image = '/og-image.jpg',
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet" />
+
+    <!-- OpenGraph / SEO -->
+    <title>{title}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Local business schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ClothingStore",
+      "name": "Subtil Lingerie",
+      "image": new URL('/og-image.jpg', Astro.site).toString(),
+      "@id": canonical,
+      "url": canonical,
+      "telephone": "+33466899674",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2 Rue Fernand Crémieux",
+        "addressLocality": "Bagnols-sur-Cèze",
+        "postalCode": "30200",
+        "addressCountry": "FR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 44.1614, "longitude": 4.6178 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "14:00", "closes": "19:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "09:30", "closes": "12:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "14:00", "closes": "19:00" }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/subtil_lingerie/",
+        "https://www.facebook.com/SubtilLg/"
+      ]
+    })} />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 1rem;
+        background: var(--c-aubergine);
+        color: var(--c-cream);
+        padding: 0.75rem 1.25rem;
+        z-index: 100;
+        transition: top 0.2s;
+      }
+      .skip-link:focus { top: 1rem; color: var(--c-cream); }
+    </style>
+  </body>
+</html>
