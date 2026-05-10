@@ -47,10 +47,18 @@ const { variant = 'section' } = Astro.props;
 
 <style>
   .newsletter.section {
-    padding-block: clamp(3.5rem, 8vw, 6rem);
-    background: var(--c-mauve-light);
+    position: relative;
+    padding-block: clamp(4rem, 9vw, 7rem);
+    background-color: var(--c-cream);
+    background-image:
+      linear-gradient(90deg, rgba(250, 246, 241, 0.3) 0%, rgba(250, 246, 241, 0.85) 60%, var(--c-cream) 100%),
+      url('/images/newsletter-bg.jpg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
+    overflow: hidden;
   }
+  .newsletter.section .newsletter-inner { position: relative; z-index: 1; }
   .newsletter.section .lead { margin: 1rem auto 2rem; max-width: 560px; }
 
   .newsletter-form {
