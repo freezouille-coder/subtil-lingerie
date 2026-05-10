@@ -1,0 +1,15 @@
+Watercolor botanical composition for a website background banner, evoking the brand spirit of "Subtil Lingerie" (which uses watercolor florals in its logo).
+
+Composition: large painterly watercolor florals — magnolia blossoms in dusty mauve, peony heads in deep aubergine, with delicate stems, leaves, and a few golden champagne accents. The flowers cluster on the LEFT side of the frame, with generous CREAM/IVORY empty space on the RIGHT side (this empty space is critical: it will host overlay text and a form on the website).
+
+Mood: feminine, refined, airy, hand-painted, never busy.
+Style: traditional watercolor on cold-pressed paper, visible brush strokes, soft paint bleeds, slight paper grain texture, NOT digital, NOT photographic, NOT cartoon. Reminiscent of fashion illustrator Inslee Fariss or watercolor artist Tara Sweeney.
+Color palette: aubergine #6B3E5E, dusty mauve #B898AC, champagne gold #C9A961, cream #FAF6F1 background.
+Composition: very wide horizontal banner 3:1, flowers anchored left/lower-left, lots of negative space on the right two-thirds.
+
+Strict constraints:
+- NO figures, NO bodies, NO faces, NO people
+- NO text, NO logos, NO writing of any kind
+- NO photographic realism — must look like a hand-painted watercolor
+- NO heavy saturation, keep it powdery and soft
+- The right two-thirds must remain mostly empty cream background for layout overlay

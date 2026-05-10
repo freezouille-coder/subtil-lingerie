@@ -7,8 +7,11 @@ import { marques } from '../data/boutique';
   title="Nos marques — Subtil Lingerie · Bagnols-sur-Cèze"
   description="Aubade, Simone Pérèle, Chantelle, Wacoal, Triumph, Sloggi, Freya, Tress, Sara, Maillots de bain. Découvrez nos maisons partenaires."
 >
-  <section class="page-hero bg-mauve">
-    <div class="container-narrow text-center">
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/mood-aubade.jpg" alt="" aria-hidden="true" />
+    </div>
+    <div class="container-narrow text-center page-hero-content">
       <span class="eyebrow">Nos partenaires</span>
       <h1>Les maisons que <em>nous aimons</em></h1>
       <p class="lead" style="margin-top: 1.5rem;">
@@ -55,9 +58,36 @@ import { marques } from '../data/boutique';
 </Base>
 
 <style>
+  .page-hero {
+    position: relative;
+    padding-block: clamp(5rem, 12vw, 8rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .page-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5) saturate(0.85);
+  }
+  .page-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(74, 42, 65, 0.55) 0%, rgba(74, 42, 65, 0.85) 100%);
+  }
+  .page-hero-content { color: var(--c-cream); position: relative; }
+  .page-hero-content h1, .page-hero-content .lead { color: var(--c-cream); }
+  .page-hero-content .eyebrow { color: var(--c-gold-light); }
+
   .page-hero h1 em {
     font-family: var(--font-script);
-    color: var(--c-gold);
+    color: var(--c-gold-light);
     font-style: italic;
   }
   .brand-list {
