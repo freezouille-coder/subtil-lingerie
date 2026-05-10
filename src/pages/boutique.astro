@@ -17,27 +17,38 @@ import { boutique } from '../data/boutique';
     </div>
   </section>
 
+  <section class="boutique-intro">
+    <div class="container">
+      <div class="boutique-intro-grid">
+        <div class="boutique-intro-text">
+          <p class="lead">
+            Subtil Lingerie est née d'une conviction simple :
+            <strong>chaque femme mérite la pièce qui lui va vraiment</strong>.
+            Pas celle qui correspond à une taille standard, pas celle qui ressemble à la photo
+            du catalogue — celle qui épouse sa morphologie, son style, son histoire.
+          </p>
+          <p>
+            Une équipe formée aux particularités de chaque marque, de chaque coupe, de chaque
+            matière. On prend le temps de comprendre ce que vous cherchez et l'essayage en cabine
+            fait le reste.
+          </p>
+        </div>
+        <figure class="boutique-figure">
+          <img src="/images/equipe-elegante.jpg" alt="L'équipe de Subtil Lingerie en boutique" loading="lazy" />
+          <figcaption>Catherine et son équipe — Subtil Lingerie</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="container-narrow">
-      <p class="lead">
-        Subtil Lingerie est née d'une conviction simple : <strong>chaque femme mérite la pièce qui lui va vraiment</strong>.
-        Pas celle qui correspond à une taille standard, pas celle qui ressemble à la photo du catalogue —
-        celle qui épouse sa morphologie, son style, son histoire.
-      </p>
-
-      <div class="divider">✦</div>
-
-      <figure class="boutique-figure">
-        <img src="/images/equipe-elegante.jpg" alt="L'équipe de Subtil Lingerie en boutique" loading="lazy" />
-        <figcaption>Catherine et son équipe — Subtil Lingerie, Bagnols-sur-Cèze</figcaption>
-      </figure>
-
       <h2>Le conseil avant le produit</h2>
       <p>
-        Dans notre boutique de centre-ville, vous êtes accueillie par une équipe formée aux particularités
-        de chaque marque, de chaque coupe, de chaque matière. On prend le temps de comprendre ce que vous cherchez :
-        un soutien-gorge confortable pour le quotidien, une pièce d'exception pour une occasion,
-        une chemise de nuit qui dure, un maillot pour les vacances.
+        Dans notre boutique de centre-ville, vous êtes accueillie par des femmes qui connaissent
+        chaque marque sur le bout des doigts. On vous écoute, on vous propose, on vous accompagne
+        — pour un soutien-gorge confortable du quotidien comme pour la pièce d'exception
+        d'une occasion.
       </p>
 
       <p>
@@ -96,24 +107,36 @@ import { boutique } from '../data/boutique';
   .container-narrow h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
   .container-narrow p { margin-bottom: 1rem; }
 
-  .boutique-figure {
-    margin: 2.5rem 0;
-    text-align: center;
-  }
-  .boutique-figure img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 3px;
-    box-shadow: 0 20px 40px -20px rgba(74, 42, 65, 0.35);
+  .boutique-intro { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+  .boutique-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    max-width: 1100px;
     margin-inline: auto;
   }
+  .boutique-intro-text .lead { margin-bottom: 1.25rem; }
+  .boutique-intro-text p { color: var(--c-ink); line-height: 1.7; }
+  .boutique-figure { margin: 0; }
+  .boutique-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 24px 48px -24px rgba(74, 42, 65, 0.4);
+    display: block;
+  }
   .boutique-figure figcaption {
-    margin-top: 1rem;
+    margin-top: 0.85rem;
     font-family: var(--font-display);
     font-style: italic;
     color: var(--c-muted);
     font-size: 0.95rem;
+    text-align: center;
+  }
+  @media (max-width: 760px) {
+    .boutique-intro-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .boutique-figure img { max-width: 480px; margin-inline: auto; }
   }
 
   .info-grid {
