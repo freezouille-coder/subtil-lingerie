@@ -1,0 +1,23 @@
+Re-render this exact photograph at higher resolution and improved sharpness, preserving every detail of the original.
+
+Critical preservation requirements:
+- KEEP the storefront facade EXACTLY as in the reference, including the dark calligraphy "SUBTIL" sign on the stone facade above the entrance
+- KEEP the architecture: stone arches, cream-colored historic stone walls, glass shop windows, paving stones on the ground
+- KEEP the window display contents exactly as they appear (lingerie mannequins, prêt-à-porter, garments visible through windows)
+- KEEP the yellow "CONTACTEZ Subtil Lingerie" sign on the door
+- KEEP the daylight, the shadow direction, the time of day, the colors
+- KEEP the perspective angle of the photo (slight diagonal, looking down the street)
+
+Improve only:
+- Increase sharpness, especially on the "SUBTIL" sign and architectural details
+- Slightly improve overall clarity and color depth
+- Remove JPEG compression artifacts
+
+This is a documentary photograph of an existing French boutique. Make it look like the same photo taken with a higher-resolution camera, NOT a different scene.
+
+Strict constraints:
+- DO NOT change the boutique name "SUBTIL"
+- DO NOT add or remove any visible signage, mannequin, or window display item
+- DO NOT modify the architecture or layout
+- DO NOT add modern elements that aren't there
+- DO NOT change the time of day or lighting direction
