@@ -50,8 +50,8 @@ const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${boutiqu
             <ul class="horaires">
               {boutique.horaires.map(h => (
                 <li>
-                  <span>{h.jour}</span>
-                  <strong>{h.heures}</strong>
+                  <span class="day">{h.jour}</span>
+                  <span class="hours">{h.heures}</span>
                 </li>
               ))}
             </ul>
@@ -105,17 +105,6 @@ const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${boutiqu
   .phone a { color: var(--c-aubergine); }
   .phone a:hover { color: var(--c-gold); }
 
-  .horaires { list-style: none; }
-  .horaires li {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--c-line);
-    font-size: 0.95rem;
-  }
-  .horaires li:last-child { border-bottom: 0; }
-  .horaires span { color: var(--c-muted); }
-  .horaires strong { color: var(--c-aubergine); font-weight: 500; }
 
   .socials { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 

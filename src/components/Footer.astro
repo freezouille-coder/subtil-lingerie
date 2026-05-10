@@ -6,7 +6,8 @@ const year = new Date().getFullYear();
   <div class="container footer-grid">
     <div class="col">
       <div class="footer-brand">
-        <img src="/images/logo-subtil.png" alt="Subtil Lingerie" width="160" height="220" />
+        <img src="/images/subtil-cream.png" alt="Subtil" width="1200" height="669" />
+        <span class="footer-sub">Lingerie</span>
       </div>
       <p class="footer-tag">L'élégance au cœur de Bagnols-sur-Cèze.</p>
     </div>
@@ -71,12 +72,26 @@ const year = new Date().getFullYear();
     font-size: 0.7rem;
     margin-bottom: 1rem;
   }
-  .footer-brand { margin-bottom: 1rem; }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    line-height: 0.85;
+  }
   .footer-brand img {
-    height: 130px;
+    height: 80px;
     width: auto;
     display: block;
-    filter: brightness(1.1);
+  }
+  .footer-sub {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: var(--c-gold-light);
+    padding-left: 0.4rem;
   }
   .footer-tag {
     color: var(--c-blush);

@@ -98,26 +98,32 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
   <!-- VIDÉO TOUR BOUTIQUE -->
   <section class="video-tour bg-ivory">
     <div class="container">
-      <div class="section-head text-center">
-        <span class="eyebrow">Visite virtuelle</span>
-        <h2>Bienvenue chez Subtil</h2>
-        <div class="divider">✦</div>
-        <p class="lead" style="max-width: 560px; margin: 0 auto;">
-          Une boutique pensée pour le conseil et l'essayage : marques exposées, pièces tactiles,
-          ambiance soignée.
-        </p>
-      </div>
-      <div class="video-frame">
-        <video
-          src="/video/boutique-tour.mp4"
-          poster="/images/boutique-tour-poster.jpg"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          aria-label="Visite vidéo de la boutique Subtil Lingerie"
-        ></video>
+      <div class="video-tour-grid">
+        <div class="video-tour-text">
+          <span class="eyebrow">Visite virtuelle</span>
+          <h2>Bienvenue chez Subtil</h2>
+          <p class="lead">
+            Une boutique pensée pour le conseil et l'essayage : marques exposées,
+            pièces tactiles, ambiance soignée.
+          </p>
+          <p>
+            On prend le temps de vous écouter, de comprendre votre morphologie, votre style.
+            On essaie ensemble — c'est souvent là que la pièce parfaite se révèle.
+          </p>
+          <a href="/contact" class="link-quiet">Venir nous rencontrer →</a>
+        </div>
+        <div class="video-frame">
+          <video
+            src="/video/boutique-tour.mp4"
+            poster="/images/boutique-tour-poster.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Visite vidéo de la boutique Subtil Lingerie"
+          ></video>
+        </div>
       </div>
     </div>
   </section>
@@ -394,11 +400,19 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
   }
 
   .video-tour { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
-  .video-tour .lead { margin-top: 1rem; color: var(--c-muted); }
-  .video-frame {
-    margin-top: 3rem;
-    max-width: 480px;
+  .video-tour-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    max-width: 1100px;
     margin-inline: auto;
+  }
+  .video-tour-text { max-width: 480px; }
+  .video-tour-text .lead { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+  .video-tour-text p { color: var(--c-ink); margin-bottom: 1.5rem; line-height: 1.7; }
+  .video-frame {
+    width: clamp(260px, 32vw, 340px);
     aspect-ratio: 9/16;
     border-radius: 6px;
     overflow: hidden;
@@ -412,8 +426,9 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
     object-fit: cover;
     display: block;
   }
-  @media (min-width: 760px) {
-    .video-frame { max-width: 380px; }
+  @media (max-width: 760px) {
+    .video-tour-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .video-frame { width: 100%; max-width: 320px; margin-inline: auto; }
   }
 
   .universes { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
