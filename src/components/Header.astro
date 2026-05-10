@@ -10,8 +10,7 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="brand" aria-label="Subtil Lingerie - Accueil">
-      <span class="brand-script">Subtil</span>
-      <span class="brand-sub">Lingerie</span>
+      <img src="/images/logo-subtil.png" alt="Subtil Lingerie" width="180" height="240" />
     </a>
 
     <nav class="primary-nav" aria-label="Navigation principale">
@@ -50,29 +49,22 @@ const current = Astro.url.pathname.replace(/\/$/, '') || '/';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1rem;
+    padding-block: 0.75rem;
     gap: 2rem;
   }
   .brand {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     line-height: 0.9;
     text-decoration: none;
   }
-  .brand-script {
-    font-family: var(--font-script);
-    font-size: 2rem;
-    color: var(--c-aubergine);
-    font-weight: 500;
+  .brand img {
+    height: 64px;
+    width: auto;
+    display: block;
   }
-  .brand-sub {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    letter-spacing: 0.45em;
-    color: var(--c-gold);
-    text-transform: uppercase;
-    margin-top: 2px;
-    padding-left: 4px;
+  @media (max-width: 480px) {
+    .brand img { height: 52px; }
   }
   .primary-nav ul {
     display: flex;

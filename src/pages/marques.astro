@@ -21,6 +21,22 @@ import { marques } from '../data/boutique';
     </div>
   </section>
 
+  <section class="display-feature">
+    <div class="container">
+      <figure class="display-figure">
+        <img
+          src="/images/display-aubade.jpg"
+          alt="Vitrine Subtil Lingerie : campagne Aubade et sélection de pièces"
+          loading="lazy"
+        />
+        <figcaption>
+          <span class="eyebrow">Vue de la vitrine</span>
+          <p>Notre vitrine, renouvelée au rythme des collections et des saisons.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section>
     <div class="container">
       <div class="brand-list">
@@ -90,6 +106,39 @@ import { marques } from '../data/boutique';
     color: var(--c-gold-light);
     font-style: italic;
   }
+  .display-feature {
+    padding-block: clamp(2.5rem, 5vw, 4rem) 1rem;
+  }
+  .display-figure {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .display-figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 24px 50px -25px rgba(74, 42, 65, 0.4);
+  }
+  .display-figure figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .display-figure figcaption p {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--c-aubergine);
+    line-height: 1.4;
+  }
+  @media (max-width: 760px) {
+    .display-figure { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
+
   .brand-list {
     display: flex;
     flex-direction: column;

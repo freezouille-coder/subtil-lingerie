@@ -7,8 +7,11 @@ import { boutique } from '../data/boutique';
   title="La boutique — Subtil Lingerie · Bagnols-sur-Cèze"
   description="Subtil Lingerie, boutique de lingerie féminine au cœur de Bagnols-sur-Cèze. Une équipe à votre écoute, des marques de confiance, l'essayage et le conseil personnalisé."
 >
-  <section class="page-hero bg-mauve">
-    <div class="container-narrow text-center">
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/vitrine.jpg" alt="" aria-hidden="true" />
+    </div>
+    <div class="container-narrow text-center page-hero-content">
       <span class="eyebrow">Notre boutique</span>
       <h1>Une histoire de famille, <em>une passion partagée</em></h1>
     </div>
@@ -23,6 +26,11 @@ import { boutique } from '../data/boutique';
       </p>
 
       <div class="divider">✦</div>
+
+      <figure class="boutique-figure">
+        <img src="/images/equipe.jpg" alt="L'équipe de Subtil Lingerie devant la boutique" loading="lazy" />
+        <figcaption>L'équipe Subtil — devant la boutique, rue Fernand Crémieux</figcaption>
+      </figure>
 
       <h2>Le conseil avant le produit</h2>
       <p>
@@ -85,11 +93,34 @@ import { boutique } from '../data/boutique';
 
 <style>
   .page-hero {
-    padding-block: clamp(4rem, 8vw, 6rem);
+    position: relative;
+    padding-block: clamp(5rem, 12vw, 8rem);
+    overflow: hidden;
+    isolation: isolate;
   }
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .page-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) saturate(0.9);
+  }
+  .page-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(74, 42, 65, 0.45) 0%, rgba(42, 31, 38, 0.85) 100%);
+  }
+  .page-hero-content { position: relative; }
+  .page-hero-content h1 { color: var(--c-cream); }
+  .page-hero-content .eyebrow { color: var(--c-gold-light); }
   .page-hero h1 em {
     font-family: var(--font-script);
-    color: var(--c-gold);
+    color: var(--c-gold-light);
     font-style: italic;
     display: block;
     font-size: 0.9em;
@@ -98,6 +129,26 @@ import { boutique } from '../data/boutique';
   .container-narrow .lead { margin-bottom: 1rem; }
   .container-narrow h2 { margin-top: 2.5rem; margin-bottom: 1rem; }
   .container-narrow p { margin-bottom: 1rem; }
+
+  .boutique-figure {
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+  .boutique-figure img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 20px 40px -20px rgba(74, 42, 65, 0.35);
+    margin-inline: auto;
+  }
+  .boutique-figure figcaption {
+    margin-top: 1rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--c-muted);
+    font-size: 0.95rem;
+  }
 
   .info-grid {
     display: grid;

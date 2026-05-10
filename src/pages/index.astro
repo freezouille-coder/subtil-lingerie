@@ -79,8 +79,33 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
         <a href="/boutique" class="btn btn-ghost">En savoir plus</a>
       </div>
       <div class="preview-image">
-        <div class="image-placeholder">
-          <span>Photo boutique<br/>(à intégrer)</span>
+        <img
+          src="/images/vitrine.jpg"
+          alt="Façade de la boutique Subtil Lingerie à Bagnols-sur-Cèze"
+          width="1600"
+          height="1200"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉDITORIAL FEATURE -->
+  <section class="editorial-feature">
+    <div class="container">
+      <div class="editorial-grid">
+        <div class="editorial-image">
+          <img src="/images/boutique-interior.jpg" alt="Détail d'une parure de lingerie en dentelle aubergine sur table de marbre" loading="lazy" />
+        </div>
+        <div class="editorial-text">
+          <span class="eyebrow">L'art de la pièce parfaite</span>
+          <h2>Chaque essai est un petit rituel</h2>
+          <p>
+            Une dentelle bien coupée, un satin qui tombe juste, une bretelle qui ne marque pas.
+            Ce sont des détails minuscules — et ce sont eux qui font qu'on porte une pièce
+            tous les jours plutôt qu'une fois par an.
+          </p>
+          <a href="/marques" class="link-quiet">Découvrir nos sélections →</a>
         </div>
       </div>
     </div>
@@ -197,18 +222,48 @@ const marquesPhares = marques.filter(m => phares.includes(m.slug));
   .preview-text p { margin-bottom: 1rem; color: var(--c-ink); }
   .preview-text .btn { margin-top: 1rem; }
 
-  .image-placeholder {
-    aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--c-mauve-light), var(--c-mauve));
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--c-aubergine);
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    text-align: center;
+  .preview-image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 3px;
     box-shadow: 0 20px 40px -20px rgba(107, 62, 94, 0.3);
+  }
+  .preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .editorial-feature {
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+    background: var(--c-cream);
+  }
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .editorial-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 24px 48px -24px rgba(74, 42, 65, 0.4);
+  }
+  .editorial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .editorial-text h2 { margin-bottom: 1.25rem; }
+  .editorial-text p { margin-bottom: 1.5rem; color: var(--c-ink); font-size: 1.05rem; line-height: 1.7; }
+  @media (max-width: 760px) {
+    .editorial-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .editorial-image { aspect-ratio: 4/3; max-width: 480px; margin-inline: auto; }
   }
 
   .section-head { text-align: center; margin-bottom: 3rem; }

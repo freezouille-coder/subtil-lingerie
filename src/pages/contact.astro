@@ -7,8 +7,11 @@ const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${boutiqu
   title="Contact & accès — Subtil Lingerie"
   description="Adresse, horaires, téléphone, plan d'accès. Subtil Lingerie - 2 Rue Fernand Crémieux, 30200 Bagnols-sur-Cèze."
 >
-  <section class="page-hero bg-mauve">
-    <div class="container-narrow text-center">
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/rue-noel.jpg" alt="" aria-hidden="true" />
+    </div>
+    <div class="container-narrow text-center page-hero-content">
       <span class="eyebrow">Nous trouver</span>
       <h1>Bienvenue à <em>Bagnols-sur-Cèze</em></h1>
     </div>
@@ -83,9 +86,35 @@ const mapsEmbed = `https://www.google.com/maps?q=${encodeURIComponent(`${boutiqu
 </Base>
 
 <style>
+  .page-hero {
+    position: relative;
+    padding-block: clamp(5rem, 12vw, 8rem);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .page-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .page-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55) saturate(0.9);
+  }
+  .page-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(74, 42, 65, 0.35) 0%, rgba(42, 31, 38, 0.85) 100%);
+  }
+  .page-hero-content { position: relative; }
+  .page-hero-content h1 { color: var(--c-cream); }
+  .page-hero-content .eyebrow { color: var(--c-gold-light); }
   .page-hero h1 em {
     font-family: var(--font-script);
-    color: var(--c-gold);
+    color: var(--c-gold-light);
     font-style: italic;
   }
   .contact-grid {

@@ -1,21 +1,26 @@
 /* ============================================
    Subtil Lingerie — Design system
-   Inspiré du logo aquarelle (aubergine, mauve, or champagne)
+   Palette : aubergine sombre + or champagne + blush poudré + crème
+   (Pas de mauve pastel)
    ============================================ */
 
 :root {
   /* Palette */
   --c-aubergine: #6B3E5E;
   --c-aubergine-dark: #4A2A41;
-  --c-mauve: #B898AC;
-  --c-mauve-light: #E8D9E2;
+  --c-blush: #D4A89A;          /* Blush chaud, ex-mauve */
+  --c-blush-light: #F4E8E0;    /* Blush très pâle, ex-mauve-light */
   --c-gold: #C9A961;
   --c-gold-light: #E5D3A3;
   --c-cream: #FAF6F1;
   --c-ivory: #F5EFE7;
   --c-ink: #2A1F26;
-  --c-muted: #8A7A82;
+  --c-muted: #8A7868;          /* Ton brun chaud, plus de violet */
   --c-line: rgba(107, 62, 94, 0.15);
+
+  /* Aliases legacy (compat temporaire pour ne rien casser) */
+  --c-mauve: var(--c-blush);
+  --c-mauve-light: var(--c-blush-light);
 
   /* Typographie */
   --font-display: 'Cormorant Garamond', 'Garamond', Georgia, serif;
