@@ -21,6 +21,8 @@ import { boutique } from '../data/boutique';
     <div class="container">
       <div class="boutique-intro-grid">
         <div class="boutique-intro-text">
+          <span class="eyebrow">L'esprit Subtil</span>
+          <h2>Le bon conseil, et l'œil qui va avec</h2>
           <p class="lead">
             Subtil Lingerie est née d'une conviction simple :
             <strong>chaque femme mérite la pièce qui lui va vraiment</strong>.
@@ -28,13 +30,22 @@ import { boutique } from '../data/boutique';
             du catalogue — celle qui épouse sa morphologie, son style, son histoire.
           </p>
           <p>
-            Une équipe formée aux particularités de chaque marque, de chaque coupe, de chaque
-            matière. On prend le temps de comprendre ce que vous cherchez et l'essayage en cabine
-            fait le reste.
+            Nicole et Marjorie connaissent leurs marques par cœur — chaque coupe, chaque matière,
+            chaque petite différence d'ajustement entre Aubade, Wacoal ou Triumph. C'est ce qui
+            change tout en cabine.
           </p>
+
+          <ul class="key-facts">
+            <li><strong>10+</strong><span>maisons distribuées</span></li>
+            <li><strong>85A → 105G</strong><span>tailles bonnet</span></li>
+            <li><strong>36 → 50</strong><span>tailles culotte</span></li>
+            <li><strong>Cabine</strong><span>essayage et conseil</span></li>
+          </ul>
+
+          <p class="signature">— Nicole &amp; Marjorie</p>
         </div>
         <figure class="boutique-figure">
-          <img src="/images/equipe-elegante.jpg" alt="L'équipe de Subtil Lingerie en boutique" loading="lazy" />
+          <img src="/images/equipe-elegante.jpg" alt="Nicole et Marjorie dans la boutique Subtil Lingerie" loading="lazy" />
           <figcaption>Nicole et Marjorie — Subtil Lingerie, Bagnols-sur-Cèze</figcaption>
         </figure>
       </div>
@@ -116,8 +127,42 @@ import { boutique } from '../data/boutique';
     max-width: 1100px;
     margin-inline: auto;
   }
+  .boutique-intro-text h2 { margin: 0.75rem 0 1.5rem; }
   .boutique-intro-text .lead { margin-bottom: 1.25rem; }
   .boutique-intro-text p { color: var(--c-ink); line-height: 1.7; }
+
+  .key-facts {
+    list-style: none;
+    padding: 1.5rem 0 0.5rem;
+    margin: 1.75rem 0;
+    border-top: 1px solid var(--c-line);
+    border-bottom: 1px solid var(--c-line);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1.5rem;
+  }
+  .key-facts li { display: flex; flex-direction: column; gap: 0.15rem; }
+  .key-facts strong {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--c-aubergine-dark);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .key-facts span {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--c-muted);
+  }
+  .signature {
+    margin-top: 1.25rem;
+    font-family: var(--font-script);
+    font-size: 1.85rem;
+    color: var(--c-gold);
+    line-height: 1;
+  }
   .boutique-figure { margin: 0; }
   .boutique-figure img {
     width: 100%;
